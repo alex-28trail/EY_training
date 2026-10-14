@@ -1,0 +1,158 @@
+SELECT * FROM c
+
+
+SELECT c.guest_name, c.city, c.hotel_name from c
+
+SELECT c.guest_name, c.room_type, c.nights, c.booking_amount from c
+
+select c.id, c.guest_name, c.booking_status from c
+
+select * from c where c.city='Hyderabad'
+
+select * from c where c.city='Mumbai'
+
+select * from c where c.booking_status='Completed'
+
+select * from c where c.room_type='Suite'
+
+ select * from c where c.room_type='Executive'
+
+select * from c where c.booking_amount>2000
+
+Select * from c where c.room_rate>6000
+
+select*from c where c.nights>3
+
+select * from c where c.rating<4.2
+
+select * from c where c.booking_amount>8000 and c.booking_amount <25000
+
+select * from c where c.room_rate<4000
+
+select * from c where c.booking_status='Confirmed' and c.booking_amount>15000
+
+select * from c where c.city='Mumbai' and c.room_type='Suite'
+
+
+
+select * from c where c.nights>2 and c.rating>4.5
+
+
+
+select * from c where c.booking_status='Completed' and c.booking_amount>10000
+
+
+
+
+select * from c where c.room_type='Standard' and c.room_rate<3500
+
+
+
+select * from c where c.city='Hyderabad' or c.city='Bengaluru'
+
+
+select * from c where c.city='Mumbai' or c.city='Delhi'
+
+
+
+select * from c where c.room_type='Suite' or c.room_type='Executive'
+
+
+select * from c where c.booking_status='Completed' or c.booking_status='Confirmed'
+
+select * from c where c.city='Chennai' or c.city='Pune' or c.city='Kolkata'
+
+Section F — ORDER BY
+
+
+select * from c order by c.booking_amount
+
+
+
+
+select * from c order by c.booking_amount desc
+
+
+
+
+select * from c order by c.rating desc
+
+select * from c order by c.nights desc
+
+
+select * from c order by c.city asc,c.booking_amount asc
+
+
+select count (c.id) from c
+
+select count(c.booking_status) from c where c.booking_status='Confirmed'
+
+select count(c.booking_status) from c where c.booking_status='Completed'
+
+select count(c.id) from c where c.room_type='Suite'
+
+select count(c.id) from c where c.city='Pune'
+
+
+36
+select c.city,count(c.id) from c group by c.city
+
+select c.room_type,count(c.id) from c group by c.room_type
+
+select c.booking_status,count(c.id) from c group by c.booking_status
+
+select c.city,sum(c.booking_amount) from c group by c.city
+
+select c.room_type, avg(c.booking_amount) from c group by c.room_type
+
+select c.city,avg(c.rating) from c group by c.city
+
+select c.city,sum(c.nights) from c group by c.city
+
+select c.room_type,avg(c.room_rate) from c group by c.room_type
+
+
+select c.city, sum(c.booking_amount) from c where c.booking_status='Confirmed' group by c.city 
+
+select c.city,count(c.id) from c where c.booking_status ='Completed' group by c.city
+
+select c.city, avg(c.booking_amount) from c where c.booking_amount > 8000 group by c.city
+
+select c.room_type, sum(c.nights) from c  group by c.room_type
+
+
+select top 5 c.booking_amount from c order by c.booking_amount desc
+
+select top 3 c.city,c.rating from c order by c.rating desc
+
+select c.booking_status, c.room_type,c.booking_amount from c where c.booking_status='Confirmed'and c.room_type='Suite' order by c.booking_amount desc
+
+select * from c where c.booking_amount>15000 and c.rating>4.5 order by c.booking_amount desc
+
+select * from c where (c.city='Hyderabad'or c.city='Bengaluru' )and c.nights>2
+
+select * from c where c.booking_status='Cancelled' order by c.rating
+
+select c.guest_name , c.city , c.hotel_name ,c.booking_amount , c.rating from c where c.booking_amount>20000
+
+select * from c where c.room_type='Executive' and c.room_rate>=600 order by c.room_rate desc
+
+select top 1 c.city,sum(c.booking_amount) as total from c group by c.city
+
+select top 1 c.id,c.room_type,c.booking_amount from c order by c.booking_amount desc  
+
+select top 1 c.id,c.room_type,c.rating from c order by c.rating desc  
+
+select top 1 c.room_type,avg(c.booking_amount) from c group by c.room_type 
+
+select top 1 sum(c.nights)from c group by c.city
+
+select * from c where c.booking_status='Cancelled'
+
+select count(c.city) from c where c.booking_status='Completed'
+
+select top 1 c.room_type, c.id from c order by c.booking_amount desc
+
+select top 1 c.room_type,avg(c.room_rate) from c group by c.room_type
+
+select sum(c.booking_amount) as Total_price from c where c.booking_status='Confirmed'
