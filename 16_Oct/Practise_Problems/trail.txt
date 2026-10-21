@@ -1,0 +1,358 @@
+import pandas as pd
+import numpy as np
+import json
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# A1. Load CSV and display first five rows
+df = pd.read_csv("urban_mobility.csv")
+print(df.head())
+
+# A2. Create Energy_Per_Km
+df["Energy_Per_Km"] = df["Energy_Used_kWh"] / df["Distance_Km"]
+print(df.head())
+
+# A3. Electric Van records with Maintenance_Flag = Yes
+electric_vans = df[
+    (df["Vehicle_Type"] == "Electric Van") &
+    (df["Maintenance_Flag"] == "Yes")
+]
+print(electric_vans)
+
+# A4. Group by Vehicle_Type
+grouped = df.groupby("Vehicle_Type").agg({
+    "Distance_Km": "mean",
+    "Trips_Count": "sum"
+})
+print(grouped)
+
+# A5. NumPy statistics
+energy = df["Energy_Used_kWh"].to_numpy()
+
+print("Mean:", np.mean(energy))
+print("Max :", np.max(energy))
+print("Min :", np.min(energy))
+
+# A6. Bar chart
+avg_energy = df.groupby("Vehicle_Type")["Energy_Used_kWh"].mean()
+
+plt.figure(figsize=(8,5))
+sns.barplot(x=avg_energy.index, y=avg_energy.values)
+plt.title("Average Energy Used by Vehicle Type")
+plt.xlabel("Vehicle Type")
+plt.ylabel("Average Energy Used (kWh)")
+plt.xticks(rotation=45)
+plt.show()
+
+# A7. Load equipment_events.json
+with open("equipment_events.json", "r") as f:
+    events = json.load(f)
+
+for event in events:
+    print(
+        event["event_id"],
+        event["asset_type"],
+        event["site"],
+        event["severity"]
+    )
+
+# A8. Temperature > 70
+for event in events:
+    if event.get("temperature", 0) > 70:
+        actions = event.get("actions", "No actions recorded")
+        print(event["event_id"], event["temperature"], actions)
+
+# A9. Read log file and count words
+with open("coastal_monitoring_log.txt", "r") as f:
+    text = f.read()
+
+words = text.split()
+
+print("Total words:", len(words))
+print(
+    "Inspection count:",
+    text.lower().count("inspection")
+)
+
+# A10. Print lines containing keywords
+keywords = ["boardwalk", "maintenance", "wind"]
+
+with open("coastal_monitoring_log.txt", "r") as f:
+    for line in f:
+        if any(word in line.lower() for word in keywords):
+            print(line.strip())
+
+
+
+
+# Create repository
+git init
+
+# Add files
+git add distance_tool.py weather_note.py
+
+# Check status
+git status
+
+# First commit
+git commit -m "Initial commit"
+
+# Connect remote repository
+git remote add origin <repository_url>
+
+# Push main branch
+git push -u origin main
+
+
+git checkout -b feature-update
+
+# Modify weather_note.py or distance_tool.py
+
+git add weather_note.py
+git commit -m "Updated weather note"
+
+git push -u origin feature-update
+
+
+
+Pull Request
+
+From GitHub/Azure Repos:
+
+Open repository.
+Click Pull Requests.
+New Pull Request.
+Source branch = feature-update.
+Target branch = main.
+Create PR.
+B5. Cloud vs On-Premises
+
+Cloud Infrastructure
+
+Resources hosted by cloud provider.
+Pay-as-you-go.
+Highly scalable.
+No hardware maintenance.
+
+On-Premises Infrastructure
+
+Company owns hardware.
+Higher upfront cost.
+Organization responsible for maintenance and upgrades.
+B6. What is an Azure Subscription?
+
+An Azure Subscription is a billing and management boundary that contains Azure resources and determines how usage is charged.
+
+B7. What is an Azure Resource Group?
+
+A Resource Group is a logical container that holds related Azure resources for management, monitoring, deployment, and access control.
+
+B8. Correct Hierarchy
+Plain Text
+Subscription
+└── Resource Group
+└── Resource
+B9. Why Put Resources in the Same Resource Group?
+Easier management.
+Simplified permissions.
+Shared lifecycle management.
+Easier monitoring and deployment.
+
+
+
+
+-- C1
+SELECT *
+FROM parts
+WHERE category = 'Mechanical';
+
+
+-- C2
+SELECT *
+FROM parts
+WHERE unit_price > 1000
+ORDER BY unit_price DESC;
+
+
+-- C3
+SELECT category,
+       AVG(unit_price) AS avg_price
+FROM parts
+GROUP BY category;
+
+
+-- C4
+SELECT category,
+       SUM(stock_quantity) AS total_stock
+FROM parts
+GROUP BY category;
+
+
+-- C5
+SELECT po.po_id,
+       s.supplier_name,
+       po.order_date,
+       po.status
+FROM purchase_orders po
+JOIN suppliers s
+ON po.supplier_id = s.supplier_id;
+
+
+-- C6
+SELECT po.po_id,
+       p.part_name,
+       poi.quantity,
+       p.unit_price
+FROM purchase_orders po
+JOIN purchase_order_items poi
+ON po.po_id = poi.po_id
+JOIN parts p
+ON poi.part_id = p.part_id;
+
+
+-- C7
+SELECT po.po_id,
+       p.part_name,
+       poi.quantity,
+       p.unit_price,
+       poi.quantity * p.unit_price AS line_total
+FROM purchase_orders po
+JOIN purchase_order_items poi
+ON po.po_id = poi.po_id
+JOIN parts p
+ON poi.part_id = p.part_id;
+
+
+-- C8
+SELECT s.*
+FROM suppliers s
+LEFT JOIN purchase_orders po
+ON s.supplier_id = po.supplier_id;
+
+
+-- C9
+SELECT s.*
+FROM suppliers s
+LEFT JOIN purchase_orders po
+ON s.supplier_id = po.supplier_id
+WHERE po.po_id IS NULL;
+
+
+-- C10
+CREATE OR REPLACE VIEW purchase_order_summary AS
+SELECT
+    po.po_id,
+    s.supplier_name,
+    p.part_name,
+    poi.quantity,
+    p.unit_price,
+    poi.quantity * p.unit_price AS line_total,
+    po.status
+FROM purchase_orders po
+JOIN suppliers s
+ON po.supplier_id = s.supplier_id
+JOIN purchase_order_items poi
+ON po.po_id = poi.po_id
+JOIN parts p
+ON poi.part_id = p.part_id;
+
+SELECT *
+FROM purchase_order_summary
+WHERE status = 'Pending';
+
+
+-- C11
+CREATE OR REPLACE FUNCTION calculate_part_discount(amount NUMERIC)
+RETURNS NUMERIC
+LANGUAGE plpgsql
+AS
+$$
+BEGIN
+    IF amount >= 2000 THEN
+        RETURN amount * 0.10;
+    ELSE
+        RETURN 0;
+    END IF;
+END;
+$$;
+
+SELECT part_name,
+       unit_price,
+       calculate_part_discount(unit_price) AS discount
+FROM parts;
+
+
+-- C12
+CREATE OR REPLACE FUNCTION final_part_price(amount NUMERIC)
+RETURNS NUMERIC
+LANGUAGE plpgsql
+AS
+$$
+BEGIN
+    RETURN amount - calculate_part_discount(amount);
+END;
+$$;
+
+SELECT part_name,
+       unit_price,
+       final_part_price(unit_price) AS final_price
+FROM parts;
+
+
+-- C13
+CREATE OR REPLACE PROCEDURE update_po_status(
+    p_po_id INT,
+    p_new_status VARCHAR
+)
+LANGUAGE plpgsql
+AS
+$$
+BEGIN
+    UPDATE purchase_orders
+    SET status = p_new_status
+    WHERE po_id = p_po_id;
+END;
+$$;
+
+CALL update_po_status(1, 'Received');
+
+SELECT *
+FROM purchase_orders
+WHERE po_id = 1;
+
+
+-- C14
+CREATE OR REPLACE PROCEDURE mark_old_pending_orders()
+LANGUAGE plpgsql
+AS
+$$
+BEGIN
+    UPDATE purchase_orders
+    SET status = 'Received'
+    WHERE status = 'Pending'
+      AND order_date < DATE '2026-10-04';
+END;
+$$;
+
+CALL mark_old_pending_orders();
+
+SELECT *
+FROM purchase_orders;
+
+
+-- C15
+-- Normalization Answer
+
+-- Repeated Facts:
+-- 1. supplier_name and supplier_city repeated for every order.
+-- 2. part_name and part_category repeated for every order item.
+
+-- Suggested tables:
+-- Suppliers(supplier_id, supplier_name, supplier_city)
+-- Parts(part_id, part_name, part_category, unit_price)
+-- Purchase_Orders(po_id, supplier_id, order_date, status)
+-- Purchase_Order_Items(po_item_id, po_id, part_id, quantity)
+
+
+
+

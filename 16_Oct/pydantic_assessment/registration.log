@@ -1,0 +1,5 @@
+INFO - Registration R101 validated successfully
+ERROR - Registration R102 | Field: age | Error: Value error, Age must be at least 18
+ERROR - Registration R103 | Field: email | Error: value is not a valid email address: An email address must have an @-sign.
+ERROR - Registration R103 | Field: amount | Error: Value error, Amount must be greater than 0
+INFO - Registration R104 validated successfully
