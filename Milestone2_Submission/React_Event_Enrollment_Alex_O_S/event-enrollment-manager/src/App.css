@@ -1,0 +1,287 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar */
+
+.navbar {
+  background: #27866A;
+  color: white;
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #BCE8D7;
+}
+
+/* Main Container */
+
+.container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* Events */
+
+.events-page h2,
+.registrations-page h2 {
+  margin-bottom: 20px;
+}
+
+.event-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Search and Category Filters */
+
+.filters {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 220px;
+  background: #FFFFFF;
+  border: 1px solid #C7DDD2;
+  border-radius: 7px;
+  transition: all 0.3s ease;
+}
+
+.search-box:hover,
+.category-select:hover {
+  border-color: #27866A;
+  box-shadow: 0 3px 10px rgba(39, 134, 106, 0.10);
+}
+
+.search-box:focus-within,
+.category-select:focus {
+  border-color: #27866A;
+  box-shadow: 0 0 0 3px rgba(39, 134, 106, 0.16);
+  outline: none;
+}
+
+.search-icon {
+  padding-left: 13px;
+  color: #27866A;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #203D32;
+  font-size: 14px;
+}
+
+.search-box input::placeholder {
+  color: #91A99D;
+}
+
+.clear-search {
+  border: none;
+  background: transparent;
+  color: #27866A;
+  font-size: 23px;
+  padding: 0 12px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.clear-search:hover {
+  color: #1D6952;
+}
+
+.category-select {
+  min-width: 180px;
+  padding: 12px 15px;
+  border: 1px solid #C7DDD2;
+  border-radius: 7px;
+  background: #FFFFFF;
+  color: #27866A;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.category-select option {
+  background: #FFFFFF;
+  color: #203D32;
+  padding: 10px;
+}
+
+.results-count {
+  color: #668477;
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+.no-events {
+  color: #668477;
+  padding: 15px 0;
+}
+
+/* Event Cards */
+
+.event-card {
+  background: #FFFFFF;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #D4E8DE;
+  box-shadow: 0 2px 8px rgba(39, 134, 106, 0.08);
+}
+
+.event-card h3 {
+  color: #27866A;
+  margin-bottom: 12px;
+}
+
+.event-card p {
+  margin-bottom: 9px;
+}
+
+/* Buttons */
+
+.event-card button,
+.register-form button {
+  background: #27866A;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.event-card button:hover,
+.register-form button:hover {
+  background: #1D6952;
+}
+
+.event-card button:disabled {
+  background: #AABBB2;
+  cursor: not-allowed;
+}
+
+/* Registration Form */
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.register-form input {
+  padding: 10px;
+  border: 1px solid #C7DDD2;
+  border-radius: 5px;
+  width: 100%;
+  outline: none;
+}
+
+.register-form input:focus {
+  border-color: #27866A;
+}
+
+/* Registration Cards */
+
+.registration-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.registration-card {
+  background: #FFFFFF;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #D4E8DE;
+  box-shadow: 0 2px 8px rgba(39, 134, 106, 0.08);
+}
+
+.registration-card h3 {
+  color: #27866A;
+  margin-bottom: 12px;
+}
+
+.registration-card p {
+  margin-bottom: 8px;
+}
+
+/* Cancel Button */
+
+.cancel-btn {
+  background: #C94C5C;
+  color: white;
+  border: none;
+  padding: 9px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background: #A93445;
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+    padding: 18px;
+  }
+
+  .nav-links {
+    gap: 15px;
+  }
+
+  .container {
+    margin: 20px auto;
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+
+  .search-box,
+  .category-select {
+    width: 100%;
+  }
+}
