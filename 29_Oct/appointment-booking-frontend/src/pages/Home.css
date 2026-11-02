@@ -1,0 +1,36 @@
+
+.home-page {
+  padding: 60px 8%;
+}
+
+.hero {
+  max-width: 800px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+  color: #1e293b;
+}
+
+.hero p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #64748b;
+  margin-bottom: 30px;
+}
+
+.primary-button {
+  display: inline-block;
+  background-color: #2563eb;
+  color: white;
+  padding: 13px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.primary-button:hover {
+  background-color: #1d4ed8;
+}
