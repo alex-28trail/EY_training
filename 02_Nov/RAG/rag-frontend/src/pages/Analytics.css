@@ -1,0 +1,262 @@
+.analytics-page {
+  width: 100%;
+  color: #edf0f8;
+}
+
+.analytics-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.analytics-eyebrow {
+  color: #a58af5;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+}
+
+.analytics-heading h1 {
+  font-size: 27px;
+  margin: 0 0 8px;
+}
+
+.analytics-heading p {
+  color: #8994aa;
+  font-size: 12px;
+}
+
+.analytics-refresh {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  background: #222e45;
+  color: #e8eaf2;
+  border: 1px solid #34415a;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.analytics-refresh:hover {
+  background: #303e59;
+}
+
+.analytics-stats {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.analytics-stat-card {
+  background: #151f32;
+  border: 1px solid #26344c;
+  border-radius: 11px;
+  padding: 18px;
+}
+
+.analytics-stat-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 17px;
+}
+
+.analytics-stat-icon.purple {
+  background: #352a57;
+  color: #b69aff;
+}
+
+.analytics-stat-icon.green {
+  background: #203f3b;
+  color: #70d5ae;
+}
+
+.analytics-stat-icon.red {
+  background: #482b38;
+  color: #ff829a;
+}
+
+.analytics-stat-icon.blue {
+  background: #243b58;
+  color: #83b9f8;
+}
+
+.analytics-stat-icon.orange {
+  background: #49382b;
+  color: #f0b477;
+}
+
+.analytics-stat-card p {
+  color: #8994aa;
+  font-size: 11px;
+  margin-bottom: 8px;
+}
+
+.analytics-stat-card h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.analytics-chart-panel,
+.analytics-table-panel {
+  background: #151f32;
+  border: 1px solid #26344c;
+  border-radius: 11px;
+  padding: 21px;
+  margin-bottom: 20px;
+}
+
+.analytics-panel-heading {
+  margin-bottom: 20px;
+}
+
+.analytics-panel-heading h3 {
+  font-size: 15px;
+  margin-bottom: 7px;
+}
+
+.analytics-panel-heading p {
+  color: #8994aa;
+  font-size: 11px;
+}
+
+.analytics-chart {
+  width: 100%;
+  height: 280px;
+}
+
+.analytics-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.analytics-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 650px;
+}
+
+.analytics-table th {
+  color: #8994aa;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 13px 12px;
+  border-bottom: 1px solid #2b3850;
+}
+
+.analytics-table td {
+  color: #dce2ef;
+  font-size: 11px;
+  padding: 15px 12px;
+  border-bottom: 1px solid #253149;
+}
+
+.analytics-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.analytics-status {
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 10px;
+}
+
+.analytics-status.success {
+  background: #203f3b;
+  color: #70d5ae;
+}
+
+.analytics-status.failed {
+  background: #482b38;
+  color: #ff829a;
+}
+
+.analytics-message,
+.analytics-empty {
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #8994aa;
+  text-align: center;
+}
+
+.analytics-empty {
+  background: #151f32;
+  border: 1px solid #26344c;
+  border-radius: 11px;
+  gap: 12px;
+}
+
+.analytics-empty h3 {
+  color: #edf0f8;
+  font-size: 16px;
+}
+
+.analytics-empty p {
+  font-size: 12px;
+}
+
+.analytics-error {
+  padding: 14px;
+  background: #3a202e;
+  border: 1px solid #824451;
+  color: #ff9aaa;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.analytics-loader {
+  width: 28px;
+  height: 28px;
+  border: 3px solid #34415a;
+  border-top-color: #a58af5;
+  border-radius: 50%;
+  animation: analytics-spin 0.8s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes analytics-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1100px) {
+  .analytics-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .analytics-heading {
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .analytics-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .analytics-stat-card {
+    padding: 14px;
+  }
+
+  .analytics-stat-card h2 {
+    font-size: 20px;
+  }
+
+  .analytics-chart-panel,
+  .analytics-table-panel {
+    padding: 15px;
+  }
+}
