@@ -1,0 +1,44 @@
+[
+    {
+        "id": 101,
+        "title": "Python Crash Course",
+        "author": "Eric Matthes",
+        "category": "Programming",
+        "available_copies": 2
+    },
+    {
+        "id": 102,
+        "title": "Automate the Boring Stuff with Python",
+        "author": "Al Sweigart",
+        "category": "Programming",
+        "available_copies": 2
+    },
+    {
+        "id": 103,
+        "title": "Artificial Intelligence: A Modern Approach",
+        "author": "Stuart Russell and Peter Norvig",
+        "category": "Artificial Intelligence",
+        "available_copies": 4
+    },
+    {
+        "id": 104,
+        "title": "Deep Learning",
+        "author": "Ian Goodfellow",
+        "category": "Machine Learning",
+        "available_copies": 0
+    },
+    {
+        "id": 105,
+        "title": "Hands-On Machine Learning",
+        "author": "Aurélien Géron",
+        "category": "Machine Learning",
+        "available_copies": 2
+    },
+    {
+        "id": 106,
+        "title": "Introduction to Algorithms",
+        "author": "Thomas H. Cormen",
+        "category": "Computer Science",
+        "available_copies": 0
+    }
+]

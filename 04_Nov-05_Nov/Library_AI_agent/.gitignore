@@ -1,0 +1,28 @@
+
+# Environment variables and API keys
+.env
+.env.*
+
+# Allow example environment configuration
+!.env.example
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# IDE files
+.idea/
+
+# Node dependencies
+frontend/node_modules/
+
+# Build files
+frontend/dist/
+
+# Logs
+*.log

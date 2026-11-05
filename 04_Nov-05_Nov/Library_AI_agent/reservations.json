@@ -1,0 +1,18 @@
+[
+    {
+        "reservation_id": "RES001",
+        "book_id": 101,
+        "book_title": "Python Crash Course",
+        "customer_name": "Ahmed",
+        "reservation_date": "2026-11-05 09:32:34",
+        "status": "Confirmed"
+    },
+    {
+        "reservation_id": "RES002",
+        "book_id": 106,
+        "book_title": "Introduction to Algorithms",
+        "customer_name": "alex",
+        "reservation_date": "2026-11-05 09:57:48",
+        "status": "Confirmed"
+    }
+]
