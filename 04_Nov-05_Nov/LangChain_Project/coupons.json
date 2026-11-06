@@ -1,0 +1,14 @@
+{
+    "coupons": [
+        {"code": "SAVE10", "discount": 10, "active": true},
+        {"code": "WORKSHOP10", "discount": 10, "active": true},
+        {"code": "AI10", "discount": 10, "active": true},
+        {"code": "LEARN10", "discount": 10, "active": true},
+        {"code": "SKILL10", "discount": 10, "active": true},
+        {"code": "STUDENT10", "discount": 10, "active": true},
+        {"code": "TECH10", "discount": 10, "active": true},
+        {"code": "WELCOME10", "discount": 10, "active": true},
+        {"code": "FIRST10", "discount": 10, "active": true},
+        {"code": "AIWORKSHOP10", "discount": 10, "active": true}
+    ]
+}
