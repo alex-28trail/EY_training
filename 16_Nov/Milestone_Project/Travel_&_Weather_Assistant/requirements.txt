@@ -1,0 +1,7 @@
+ollama
+python-dotenv
+requests
+pydantic
+fastapi
+uvicorn
+redis
